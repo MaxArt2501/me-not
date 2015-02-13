@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test require("me-not")</title>
+        <style type="text/css">
+            body { font-family: Arial, Helvetica, sans-serif; }
+            code { font-size: 1.4em; }
+        </style>
+    </head>
+    <body>
+        <div id="warning">
+            <h1>Warning</h1>
+            <h2>This test works only in browsers that support <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"><code>Proxy</code></a></h2>
+        </div>
+        <script type="text/javascript">
+        if (window.Proxy)
+            document.getElementById("warning").style.display = "none";
+        // Mocks for browser environment
+        var require = function(name) {
+            return require.cache[name] || (require.cache[name] = [ "Required " + name ]);
+        };
+        require.cache = {};
+        require.resolve = function(name) { return name; };
+        var module = { exports: {} },
+            exports = module.exports;
+        </script>
+        <script type="text/javascript" src="../index.js"></script>
+        <script type="text/javascript">
+        var R = exports, yo;
+        console.assert(R.yo != null, "Getting a module must work");
+        yo = R.yo;
+        console.assert(yo === R.yo, "Getting an already required module must return the same object");
+        console.assert(require.resolve("yo") in require.cache, "A required non-core module must be in cache");
+        delete R.yo;
+        console.assert(!(require.resolve("yo") in require.cache), "Deleting from me-not deletes the module from cache");
+        console.assert(yo !== R.yo, "Requiring a deleted module yields a different object");
+        </script>
+    </body>
+</html>
