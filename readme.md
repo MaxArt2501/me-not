@@ -38,4 +38,4 @@ delete R.underscore;
 
 ## License.
 
-MIT. See [LICENSE](license).
+MIT. See [LICENSE](LICENSE).

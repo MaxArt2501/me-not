@@ -1,0 +1,26 @@
+{
+  "name": "me-not",
+  "version": "0.1.0",
+  "description": "Concept library to save typing when requiring modules",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaxArt2501/me-not.git"
+  },
+  "keywords": [
+    "require",
+    "concept"
+  ],
+  "author": "Massimo Artizzu <maxart.x@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaxArt2501/me-not/issues"
+  },
+  "homepage": "https://github.com/MaxArt2501/me-not"
+}
