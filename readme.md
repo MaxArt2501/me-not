@@ -12,7 +12,7 @@ Instead of
 ```js
 var fs = require("fs"),
     path = require("path"),
-    _ = require("underscore);
+    _ = require("underscore");
 
 fs.readFile(path.resolve(...));
 ```
